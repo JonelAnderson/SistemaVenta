@@ -1,0 +1,82 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <h1>Sistema Venta</h1>
+
+        <button mat-icon-button (click)="sidenav.toggle();">
+            <mat-icon>menu</mat-icon>
+        </button>
+
+        <span style="flex: 1 1 auto;"></span>
+        <label style="font-size: 14px; margin-right: 20px;">
+            {{correoUsuario}} | {{rolUsuario}}
+        </label>
+        <button mat-icon-button (click)="cerrarSesion()">
+            <mat-icon>logout</mat-icon>
+        </button>
+
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav opened="true" mode="side" style="width: 200px;"  >
+        <mat-nav-list>
+
+            <!-- <mat-list-item *ngFor="let menu of listaMenus"   [routerLink]="menu.url">
+                <mat-icon mat-list-icon>{{menu.icono}}</mat-icon>
+                <div mat-line>{{menu.nombre}}</div>
+            </mat-list-item> -->
+
+            <mat-list-item routerLink="/pages/dashboard">
+                <mat-icon>dashboard</mat-icon><span>Dashboard</span>
+            </mat-list-item>
+
+            <mat-expansion-panel [class.mat-elevation-z0]="true">
+                <mat-expansion-panel-header>
+                    <mat-icon>group</mat-icon><span>Usuarios</span>
+                </mat-expansion-panel-header>
+                <mat-nav-list>
+                    <a mat-list-item routerLink="/pages/usuarios">Usuarios</a>
+                </mat-nav-list>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel [class.mat-elevation-z0]="true">
+                <mat-expansion-panel-header>
+                    <mat-icon>collections_bookmark</mat-icon><span>Producto</span>
+                </mat-expansion-panel-header>
+                <mat-nav-list>
+                    <a mat-list-item routerLink="/pages/productos">Produtos</a>
+                </mat-nav-list>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel [class.mat-elevation-z0]="true">
+                <mat-expansion-panel-header>
+                    <mat-icon>currency_exchange</mat-icon><span>Ventas</span>
+                </mat-expansion-panel-header>
+                <mat-nav-list>
+                    <a mat-list-item routerLink="/pages/venta">Ventas</a>
+                    <a mat-list-item routerLink="/pages/historial_venta">Historial ventas</a>
+                </mat-nav-list>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel [class.mat-elevation-z0]="true">
+                <mat-expansion-panel-header>
+                    <mat-icon>receipt</mat-icon><span>Reportes</span>
+                </mat-expansion-panel-header>
+                <mat-nav-list>
+                    <a mat-list-item routerLink="/pages/reportes">Reporte ventas</a>
+                </mat-nav-list>
+            </mat-expansion-panel>
+
+
+        </mat-nav-list>
+
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <div style="height: 90vh;">
+            <router-outlet></router-outlet>
+        </div>
+
+    </mat-sidenav-content>
+
+</mat-sidenav-container>
