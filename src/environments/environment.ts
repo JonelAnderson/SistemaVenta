@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  endpoint: "http://teddys-001-site1.ctempurl.com/api/"
+  endpoint: "https://teddys-001-site1.ctempurl.com/api/"
 };
 
 /*
